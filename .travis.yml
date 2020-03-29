@@ -9,7 +9,7 @@ before_install:
 
 script:
     # - /usr/local/opt/mosquitto/sbin/mosquitto -d
-    - xcodebuild -project SwiftMQTT/SwiftMQTT.xcodeproj -scheme SwiftMQTT -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone X" build test
+    - xcodebuild -project SwiftMQTT/SwiftMQTT.xcodeproj -scheme SwiftMQTT -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 11 Pro" build test
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
