@@ -137,9 +137,22 @@ func mqttDidDisconnect(session: MQTTSession, error: MQTTSessionError) {
 ## Installation
 
 ### [Carthage](https://github.com/Carthage/Carthage) (recommended)
+
+1. Install **Carthage 0.33.0** or later
+2. Add `github "anatoliykant/SwiftMQTT"` to your **Cartfile**
+3. Run `carthage update --platform ios`
+4. Drag **SwiftMQTT.framework** from the appropriate platform directory in **Carthage/Build/** to the **“Linked Frameworks and Libraries”** section of your Xcode project’s **“General”** settings
+
+*  On your application target’s **“Build Phases”** settings tab, click the **“+”** icon and choose **“New Run Script Phase”**. Create a Run Script with the following contents:
 ```
-github "anatoliykant/SwiftMQTT"
+/usr/local/bin/carthage copy-frameworks
 ```
+and add the paths to the frameworks you want to use under **“Input Files”**, e.g.:
+```
+$(SRCROOT)/Carthage/Build/iOS/SwiftMQTT.framework
+```
+This script works around an [App Store submission](http://www.openradar.me/radar?id=6409498411401216) bug triggered by universal binaries.
+
 
 ### [CocoaPods](https://github.com/CocoaPods/CocoaPods)
 

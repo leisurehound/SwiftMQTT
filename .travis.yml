@@ -5,7 +5,6 @@ xcode_sdk: iphonesimulator13.2
 
 before_install:
     # - brew update
-    # - brew install mosquitto
 
 script:
     # - /usr/local/opt/mosquitto/sbin/mosquitto -d
