@@ -6,13 +6,13 @@
         <img src="https://img.shields.io/badge/Swift-5.2.0-orange.svg?style=flat" alt="Swift">
     </a>
     <a href="https://github.com/Carthage/Carthage">
-        <img src="https://img.shields.io/badge/Carthage-Supported-brightgreen.svg" alt="Carthage compatible">
-    </a>
+        <img alt="Carthage compatible" src="https://img.shields.io/badge/Carthage-%E2%9C%93-brightgreen.svg?style=flat"/>
+    </a>  
     <a href="http://cocoapods.org/pods/SwiftMQTT">
         <img src="https://img.shields.io/cocoapods/v/SwiftMQTT.svg?style=flat" alt="Cocoapods compatible">
     </a>
-    <a href="./LICENSE.txt">
-        <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="License">
+    <a href="https://github.com/apple/swift-package-manager">
+        <img alt="Swift Package Manager compatible" src="https://img.shields.io/badge/SPM-%E2%9C%93-brightgreen.svg?style=flat"/>
     </a>
 </p>
 <p align="center">
@@ -30,6 +30,11 @@
    <a href="https://paypal.me/kantAnatoliy?locale.x=ru_RU">
         <img src="https://img.shields.io/badge/Donate-💰-lightblue.svg" alt="Donale">
    </a>
+</p>
+<p align="center">
+    <a href="./LICENSE.txt">
+        <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="License">
+    </a>
 </p>
 
 # SwiftMQTT
@@ -176,4 +181,4 @@ dependencies: [
 ```
 ### License
 
-**SwiftMQTT** is released under the **MIT** license. [See LICENSE](https://github.com/anatoliykant/SwiftMQTT/blob/develop/LICENSE) for details
+**SwiftMQTT** is released under the **MIT** license. See [LICENSE](https://github.com/anatoliykant/SwiftMQTT/blob/develop/LICENSE) for details
