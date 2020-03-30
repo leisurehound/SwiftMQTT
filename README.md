@@ -16,9 +16,9 @@
     </a>
 </p>
 <p align="center">
-    <a href="https://travis-ci.org/github/anatoliykant/SwiftMQTT">
-        <img src="https://travis-ci.org/anatoliykant/SwiftMQTT.svg?branch=develop" alt="Donale">
-   </a>
+    <a href="https://github.com/anatoliykant/SwiftMQTT/actions?query=event%3Apush+branch%3Adevelop">
+        <img src="https://github.com/anatoliykant/SwiftMQTT/workflows/Swift/badge.svg?branch=develop" alt="Donale">
+   </a>   
    <a href="https://codecov.io/gh/anatoliykant/SwiftMQTT">
         <img src="https://codecov.io/gh/anatoliykant/SwiftMQTT/branch/develop/graph/badge.svg" />
     </a>
@@ -28,7 +28,7 @@
         <img src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FKantAnatoliy" alt="Donale">
    </a>
    <a href="https://paypal.me/kantAnatoliy?locale.x=ru_RU">
-    <img src="https://img.shields.io/badge/Donate-💰-lightblue.svg" alt="Donale">
+        <img src="https://img.shields.io/badge/Donate-💰-lightblue.svg" alt="Donale">
    </a>
 </p>
 
