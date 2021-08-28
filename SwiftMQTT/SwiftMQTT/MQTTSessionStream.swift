@@ -48,15 +48,15 @@ class MQTTSessionStream: NSObject {
             }
 
             self.currentRunLoop = RunLoop.current
-            inputStream?.schedule(in: self.currentRunLoop!, forMode: RunLoop.Mode.default)
-            outputStream?.schedule(in: self.currentRunLoop!, forMode: RunLoop.Mode.default)
+          inputStream?.schedule(in: self.currentRunLoop!, forMode: RunLoopMode.defaultRunLoopMode)
+          outputStream?.schedule(in: self.currentRunLoop!, forMode: RunLoopMode.defaultRunLoopMode)
 
             inputStream?.open()
             outputStream?.open()
             if ssl {
                 let securityLevel = StreamSocketSecurityLevel.negotiatedSSL.rawValue
-                inputStream?.setProperty(securityLevel, forKey: .socketSecurityLevelKey)
-                outputStream?.setProperty(securityLevel, forKey: .socketSecurityLevelKey)
+                inputStream?.setProperty(securityLevel as Any?, forKey: .socketSecurityLevelKey)
+                outputStream?.setProperty(securityLevel as Any?, forKey: .socketSecurityLevelKey)
             }
             if timeout > 0 {
                 DispatchQueue.global().asyncAfter(deadline: .now() +  timeout) {
@@ -71,9 +71,9 @@ class MQTTSessionStream: NSObject {
         delegate = nil
         guard let currentRunLoop = currentRunLoop else { return }
         inputStream?.close()
-        inputStream?.remove(from: currentRunLoop, forMode: RunLoop.Mode.default)
+      inputStream?.remove(from: currentRunLoop, forMode: RunLoopMode.defaultRunLoopMode)
         outputStream?.close()
-        outputStream?.remove(from: currentRunLoop, forMode: RunLoop.Mode.default)
+      outputStream?.remove(from: currentRunLoop, forMode: RunLoopMode.defaultRunLoopMode)
     }
     
     var write: StreamWriter? {
