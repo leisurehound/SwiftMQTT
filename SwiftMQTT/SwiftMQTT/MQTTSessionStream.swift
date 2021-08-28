@@ -28,7 +28,20 @@ class MQTTSessionStream: NSObject {
     init(host: String, port: UInt16, ssl: Bool, timeout: TimeInterval, delegate: MQTTSessionStreamDelegate?) {
         var inputStream: InputStream?
         var outputStream: OutputStream?
-        Stream.getStreamsToHost(withName: host, port: Int(port), inputStream: &inputStream, outputStream: &outputStream)
+      
+      var readStream: Unmanaged<CFReadStream>?
+      var writeStream: Unmanaged<CFWriteStream>?
+      
+      CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault,
+                                         host as CFString,
+                                         UInt32(port),
+                                         &readStream,
+                                         &writeStream)
+      
+      inputStream = readStream!.takeRetainedValue()
+      outputStream = writeStream!.takeRetainedValue()
+
+        //Stream.getStreamsToHost(withName: host, port: Int(port), inputStream: &inputStream, outputStream: &outputStream)
         
         let queueLabel = host.components(separatedBy: ".").reversed().joined(separator: ".") + ".stream\(port)"
         self.sessionQueue = DispatchQueue(label: queueLabel, qos: .background, target: nil)
