@@ -48,15 +48,15 @@ class MQTTSessionStream: NSObject {
             }
 
             self.currentRunLoop = RunLoop.current
-          inputStream?.schedule(in: self.currentRunLoop!, forMode: .defaultRunLoopMode)
-          outputStream?.schedule(in: self.currentRunLoop!, forMode: .defaultRunLoopMode)
+          inputStream?.schedule(in: self.currentRunLoop!, forMode: .default)
+          outputStream?.schedule(in: self.currentRunLoop!, forMode: .default)
 
             inputStream?.open()
             outputStream?.open()
             if ssl {
                 let securityLevel = StreamSocketSecurityLevel.negotiatedSSL.rawValue
-                inputStream?.setProperty(securityLevel as Any?, forKey: .socketSecurityLevelKey)
-                outputStream?.setProperty(securityLevel as Any?, forKey: .socketSecurityLevelKey)
+                inputStream?.setProperty(securityLevel as AnyObject?, forKey: .socketSecurityLevelKey)
+                outputStream?.setProperty(securityLevel as AnyObject?, forKey: .socketSecurityLevelKey)
             }
             if timeout > 0 {
                 DispatchQueue.global().asyncAfter(deadline: .now() +  timeout) {
