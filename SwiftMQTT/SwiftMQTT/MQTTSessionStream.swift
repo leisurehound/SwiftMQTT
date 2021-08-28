@@ -55,8 +55,8 @@ class MQTTSessionStream: NSObject {
             outputStream?.open()
             if ssl {
                 let securityLevel = StreamSocketSecurityLevel.negotiatedSSL.rawValue
-                inputStream?.setProperty(securityLevel as AnyObject?, forKey: .socketSecurityLevelKey)
-                outputStream?.setProperty(securityLevel as AnyObject?, forKey: .socketSecurityLevelKey)
+                _ = inputStream?.setProperty(securityLevel as AnyObject?, forKey: .socketSecurityLevelKey)
+                _ = outputStream?.setProperty(securityLevel as AnyObject?, forKey: .socketSecurityLevelKey)
             }
             if timeout > 0 {
                 DispatchQueue.global().asyncAfter(deadline: .now() +  timeout) {
@@ -71,9 +71,9 @@ class MQTTSessionStream: NSObject {
         delegate = nil
         guard let currentRunLoop = currentRunLoop else { return }
         inputStream?.close()
-      inputStream?.remove(from: currentRunLoop, forMode: .defaultRunLoopMode)
+      inputStream?.remove(from: currentRunLoop, forMode: .default)
         outputStream?.close()
-      outputStream?.remove(from: currentRunLoop, forMode: .defaultRunLoopMode)
+      outputStream?.remove(from: currentRunLoop, forMode: .default)
     }
     
     var write: StreamWriter? {
