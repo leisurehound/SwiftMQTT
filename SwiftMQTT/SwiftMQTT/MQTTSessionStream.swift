@@ -48,8 +48,8 @@ class MQTTSessionStream: NSObject {
             }
 
             self.currentRunLoop = RunLoop.current
-          inputStream?.schedule(in: self.currentRunLoop!, forMode: RunLoopMode.defaultRunLoopMode)
-          outputStream?.schedule(in: self.currentRunLoop!, forMode: RunLoopMode.defaultRunLoopMode)
+          inputStream?.schedule(in: self.currentRunLoop!, forMode: .defaultRunLoopMode)
+          outputStream?.schedule(in: self.currentRunLoop!, forMode: .defaultRunLoopMode)
 
             inputStream?.open()
             outputStream?.open()
@@ -71,9 +71,9 @@ class MQTTSessionStream: NSObject {
         delegate = nil
         guard let currentRunLoop = currentRunLoop else { return }
         inputStream?.close()
-      inputStream?.remove(from: currentRunLoop, forMode: RunLoopMode.defaultRunLoopMode)
+      inputStream?.remove(from: currentRunLoop, forMode: .defaultRunLoopMode)
         outputStream?.close()
-      outputStream?.remove(from: currentRunLoop, forMode: RunLoopMode.defaultRunLoopMode)
+      outputStream?.remove(from: currentRunLoop, forMode: .defaultRunLoopMode)
     }
     
     var write: StreamWriter? {
